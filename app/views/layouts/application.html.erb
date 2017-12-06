@@ -6,6 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style type="text/css">
+      .alert {
+        border: none;
+      }
+    </style>
+
   </head>
 
   <body>
@@ -13,6 +20,9 @@
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
+
+
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -34,10 +44,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="pull-right text-right nav navbar-nav">
-            
+
             <% if current_user %>
               <% if current_user.admin? %>
-                <li class="active"><%= link_to 'admin後台',admin_restaurants_path %></li>
+                <li><%= link_to 'admin後台',admin_restaurants_path %></li>
               <% end %>
               <li><p class="navbar-text">Hi, <%= current_user.email %></p></li>
               <li ><%= link_to('登出', destroy_user_session_path, method: :delete) %> <span class="sr-only">(current)</span></li>
@@ -49,9 +59,28 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
+
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+        <% if flash[:notice] %>
+        <div class="container">
+          <div class="row">
+            <div class="alert alert-success text-center">
+              <%= notice %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <% if flash[:alert] %>
+        <div class="container">
+          <div class="row">
+            <div class="alert alert-danger text-center">
+              <%= alert %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
     <%= yield %>
   </body>
 </html>

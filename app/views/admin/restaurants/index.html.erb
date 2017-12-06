@@ -1,11 +1,11 @@
 <div class="container">
 	
 	<div class="text-center">
-		<h4>後台 | <%= link_to '+New Restaurant', new_admin_restaurant_path %></h4>
+		<h4><%= link_to '+New Restaurant', new_admin_restaurant_path %></h4>
 	</div>
 		
 
-	<table class="table table-striped">
+	<table class="table table-hover">
 	  <% @restaurants.each do |restaurant| %>
 	  <tr>
 	    <td><%= restaurant.name %></td>
@@ -25,3 +25,9 @@
 		</div>
 
 </div>
+
+<style type="text/css">
+
+
+</style>
+
