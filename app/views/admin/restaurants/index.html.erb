@@ -3,13 +3,26 @@
 	<div class="text-center">
 		<h4><%= link_to '+New Restaurant', new_admin_restaurant_path %></h4>
 	</div>
-		
+
 
 	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Category</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Opening Hours</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>		
 	  <% @restaurants.each do |restaurant| %>
 	  <tr>
+	  	<th scope="row"><%= restaurant.id %></th>
+	    <td>[<%= restaurant.category.name %>]</td>
 	    <td><%= restaurant.name %></td>
-	    <td><%= restaurant.tel %></td>
 	    <td><%= restaurant.address %></td>
 	    <td><%= restaurant.opening_hours %></td>
 
