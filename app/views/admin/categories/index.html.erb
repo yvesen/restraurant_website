@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="text-center">
+    <h4>餐廳分類表</h4>
+  </div>
+
+  <div class="text-center">
+  <%= link_to 'Restaurant', admin_restaurants_path %> |
+  <%= link_to 'Categories', admin_categories_path %>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>no</th>
+        <th>Category Name</th>
+      </tr>
+    </thead>
+    <div>
+      <% @categories.each do |category| %>
+      <tr>
+        <th scope="row"><%= category.id %></th>
+        <td><%= category.name %></td>
+      </tr>
+      <% end %>
+    </div>
+  </table>
+
+
+
+</div>
