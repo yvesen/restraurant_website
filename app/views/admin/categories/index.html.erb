@@ -6,6 +6,7 @@
   <div class="text-center">
   <%= link_to 'Restaurant', admin_restaurants_path %> |
   <%= link_to 'Categories', admin_categories_path %>
+  
   </div>
 
   <div class="form-inline text-center catesen" >
@@ -14,9 +15,9 @@
       <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
     </div>
     <%= f.submit class: "btn btn-primary" %>
-      <% if @category.errors.any? %>
-      <%= @category.errors.full_messages.to_sentence %>
-      <% end %>
+    <% if @category.errors.any? %>
+    <%= @category.errors.full_messages.to_sentence  %>
+    <% end %>
   <% end %>
 
   </div>
@@ -35,6 +36,7 @@
       <tr>
         <th scope="row"><%= category.id %></th>
         <td><%= category.name %></td>
+        <td><%= link_to 'Edit', admin_categories_path(id: category.id) %></td>
       </tr>
       <% end %>
     </div>
@@ -48,4 +50,5 @@
   .catesen{
     padding-top: 10px;
   }
+
 </style>
