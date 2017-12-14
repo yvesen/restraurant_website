@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @restaurant.name %></h1>
+      <p class="label label-primary"><%= @restaurant.category.name %></p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topsen">
+        <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
+        <img src="http://lorempixel.com/360/200/food" />
+      </div>
+      <br>
+      <div class="well">
+        <ul class="list-unstyled">
+          <li><strong>Opening Hour:</strong> <%= @restaurant.opening_hours %></li>
+          <li><strong>Tel:</strong> <%= @restaurant.tel %></li>
+          <li><strong>Address:</strong> <%= @restaurant.address %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= simple_format @restaurant.description %>
+      <h5><%= link_to 'Back to index', restaurants_path %>
+    </div>
+    
+  </h5>
+
+    <div class="clearfix"></div>
+
+    <hr>
+
+  </div>
+</div>
+
+<style>
+  .topsen{
+    margin-top: 10px;
+  }
+
+</style>
