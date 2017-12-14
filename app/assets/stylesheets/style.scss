@@ -1,0 +1,19 @@
+.restaurant-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.restaurant-item img {
+  max-height: 200px;
+  width: 100%;
+}
+
+.restaurant-item .caption {
+  padding: 10px;
+}
+
+.lesen{
+  float: left;
+}
