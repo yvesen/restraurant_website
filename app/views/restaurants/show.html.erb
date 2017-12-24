@@ -8,7 +8,7 @@
     <div class="col-md-4">
       <div class="topsen">
         <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
-        <img src="http://lorempixel.com/360/200/food" />
+        <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+placeholder">
       </div>
       <br>
       <div class="well">
@@ -36,6 +36,9 @@
       <p><%= simple_format comment.content %></p>
       <p class="text-muted">
         <em><%= time_ago_in_words(comment.created_at) %> </em>
+        <% if current_user.admin? %>
+          <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
+        <% end %>
       </p>
     </div>
     <hr>
@@ -52,6 +55,9 @@
       <%= f.submit class: "btn btn-primary" %>
       <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
     </div>
+    
+    
+
     <% end %>
 
   </div>
