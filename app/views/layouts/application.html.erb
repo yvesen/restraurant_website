@@ -53,6 +53,7 @@
                 <li><%= link_to 'admin後台',admin_restaurants_path %></li>
               <% end %>
               <li><%= link_to current_user.email %></li>
+              <li><%= link_to 'Profile', user_path(current_user) %></li>
               <li ><%= link_to('登出', destroy_user_session_path, method: :delete) %> <span class="sr-only">(current)</span></li>
               <li><%= link_to('修改密碼', edit_user_registration_path) %></li>
             <% else %>
