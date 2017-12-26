@@ -5,9 +5,8 @@
       <div class="perpage">
 
         <div class="col-md-4 col-sm-4 col-md-offset-3 ">
-          <div class="text-center photoright">
-          <img src="https://api.fnkr.net/testimg/350x350/00CED1/FFF/?text=img+placeholder" class="img-responsive img-rounded">
-          
+          <div class="text-center">
+            <%= image_tag @user.avatar, class:"img-responsive img-rounded" %>   
           </div>
         </div>
 
@@ -30,8 +29,5 @@
 </div>
 
 <style>
-  .photoright{
-    text-align: center;
-    margin: auto;
-  }
+  
 </style>
