@@ -21,13 +21,61 @@
 
         <div class="clearfix"></div>
 
-
       </div>
+
+      <br>
+
+      
 
     </div>
   </div>
 </div>
 
+<div class="container-fluid">
+  <div class="comlay">
+    <div class="panel panel-default text-center">
+      <!-- 顯示已評論餐廳的清單 -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 已評論餐廳</h3>
+      </div>
+          
+      <div class="panel-body">
+        <% @commented_restaurants.each do |restaurant| %>
+        <%= link_to restaurant_path(restaurant) do %>
+          
+        <div class="my-restaurant">
+          <div>
+            <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+            <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+placeholder">
+            </div>
+          <h5><%= restaurant.name %></h5>
+        </div>
+          
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
+  .my-restaurant{
+    display: inline-block;
+    text-align: center;
+    padding: 7px 7px 0 7px;
+  }
+  .my-restaurant >div{
+    height: 60px;
+  }
+  .my-restaurant img{
+    max-height: 100%;
+  }
+  .panel a:hover, .my-restaurant{
+    background-color: #eee;
+  }
+  .comlay{
+    text-align: center;
+    margin: 0 auto;
+  }
   
 </style>
