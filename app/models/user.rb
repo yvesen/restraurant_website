@@ -11,5 +11,7 @@ class User < ApplicationRecord
   end
 
   has_many :comments
+
+  
   
 end
