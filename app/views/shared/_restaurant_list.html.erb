@@ -2,7 +2,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="restaurant-item">
           <%= image_tag restaurant.image, class: "img-responsive center-block" %>
-          <img src="https://api.fnkr.net/testimg/350x300/00CED1/FFF/?text=img+placeholder">
+          
           <div class="caption">
             <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
             <p class="label label-primary"><%= restaurant.category.name %><p>
