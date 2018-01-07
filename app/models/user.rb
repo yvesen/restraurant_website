@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :restrict_with_error
   has_many :restaurants, through: :comments
 
+  # 「使用者收藏很多餐廳」的多對多關聯
+  # 自訂名稱後，Rails 無法自動推論來源名稱，需另加 source 告知 model name
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_restaurants, through: :favorites, source: :restaurant
 
   
 end
