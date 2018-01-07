@@ -34,6 +34,10 @@ class RestaurantsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def ranking
+    @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
+  end
+
   def like
     @restaurant = Restaurant.find(params[:id])
     @restaurant.likes.create!(user: current_user)
