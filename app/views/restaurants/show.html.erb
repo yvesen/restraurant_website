@@ -21,8 +21,10 @@
     </div>
     <div class="col-md-8">
       <%= simple_format @restaurant.description %>
-      <h5><%= link_to 'Back to index', restaurants_path %>
+      <h5><%= link_to 'Back to index', restaurants_path, class: "btn btn-default" %>
+      <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant), class: "btn btn-default" %>
     </div>
+
     
   </h5>
 
