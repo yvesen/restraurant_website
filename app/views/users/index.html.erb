@@ -1,13 +1,38 @@
-<ul>
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <%= link_to '首頁', root_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to '最新動態', feeds_restaurants_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'TOP10人氣餐廳', ranking_restaurants_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to '美食達人', users_path %>
+      </li>
+    </ul>
+  </div>
+</div>
 
-  <% @users.each do |user| %>
-    <li>
-      <!-- 會用 POST 動作導向 http://localhost:3000/followships?following_id={user.id} -->
-      <%= user.name %>
-      <%= link_to 'Follow',followships_path(following_id: user), method: :post %>
-      <!-- 會用 DELETE 動作導向 http://localhost:3000/followships/{user.id} -->
-      <%= link_to 'Unfollow', followship_path(user), method: :delete %>
-    </li>
-  <% end %>
-
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h3>美食達人</h3>
+      </div>
+    </div>
+    <% @users.each do |user| %>
+      <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
+        <%= link_to user_path(user) do %>
+        <%= image_tag(user.avatar, class: "img-rounded") %>
+        <!-- 會用 POST 動作導向 http://localhost:3000/followships?following_id={user.id} -->
+        <h4><%= user.name %></h4>
+        <% end %>
+        <%= render partial: "shared/follow", locals: {user: user} %>
+      </div>
+    <% end %>
+  </div>
+</div>
