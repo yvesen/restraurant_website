@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @commented_restaurants = @user.restaurants.uniq
+    @favorited_restaurants = @user.favorited_restaurants
+    @followings = @user.followings
+    @followers = @user.followers # 需至 User Model 自訂方法
   end
 
   def edit
