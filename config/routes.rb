@@ -24,12 +24,19 @@ Rails.application.routes.draw do
       post :like
       post :unlike
     end
+
+    member do
+      post :friend
+      post :unfriend
+    end
   end
 
 
   resources :users, only: [:index, :show, :edit, :update]
 
   resources :followships, only: [:create, :destroy]
+  
+  resources :friendships, only: [:create, :destroy]
   
   resources :categories, only: :show
 	root "restaurants#index"
