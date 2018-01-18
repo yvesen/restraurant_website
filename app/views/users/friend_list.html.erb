@@ -1,0 +1,41 @@
+<div class="col-md-1"></div>
+
+<div class="col-md-10">
+  <div class="comlay">
+    <div class="panel panel-default text-center">
+      <!-- 顯示已評論餐廳的清單 -->
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @friends.count %></strong> friends</h3>
+      </div>
+          
+      <div class="panel-body">
+        <% @friends.each do |friend| %>
+        <%= link_to user_path(friend) do %>
+        <div class="my-restaurant">
+          <div>
+          <%=image_tag(friend.avatar, height: 60, width: 60, class: "img-circle") %>
+            
+          </div>
+       
+          <h5><%= friend.name %></h5>
+        </div>
+          
+        <% end %>
+        <% end %>
+     
+    </div>
+  </div>
+</div>
+
+<div class="col-md-1"></div>
+
+<style>
+    .my-restaurant{
+    display: inline-block;
+    text-align: center;
+    padding: 7px 7px 0 7px;
+  }
+</style>
+
+
+

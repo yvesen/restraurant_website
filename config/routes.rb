@@ -29,10 +29,17 @@ Rails.application.routes.draw do
       post :friend
       post :unfriend
     end
+
+    
+
   end
 
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      get :friend_list
+    end
+  end
 
   resources :followships, only: [:create, :destroy]
   
